@@ -1,1 +1,106 @@
+/* ================================
+   Google Fonts Link
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Poppins:wght@600&family=Source+Sans+3:wght@400;600&display=swap");
+
 @import "tailwindcss";
+
+/* ================================
+   THEME TOKENS
+================================ */
+@theme {
+  /* ---------- Brand Colors ---------- */
+  --color-primary: #e71f9b;
+  --color-accent: #e91e63;
+
+  /* Gradient Colors */
+  --color-orange-start: #ff9d2e;
+  --color-pink-end: #e91e63;
+
+  /* ---------- Semantic Colors ---------- */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #06b6d4;
+
+  /* ---------- Light Mode Backgrounds ---------- */
+  --color-background: #ffffff;
+  --color-background-secondary: #f8f9fa;
+  --color-background-tertiary: #e9ecef;
+
+  /* ---------- Light Mode Text ---------- */
+  --color-text-primary: #212529;
+  --color-text-secondary: #495057;
+  --color-text-tertiary: #adb5bd;
+
+  /* ---------- Borders ---------- */
+  --color-border: #dee2e6;
+  --color-border-strong: #ced4da;
+
+  /* ---------- Custom Fonts ---------- */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Source Sans 3", sans-serif;
+  --font-body-medium: "Source Sans 3", sans-serif;
+  --font-accent: "Manrope", sans-serif;
+
+  /* Mapping standard tailwind fonts */
+  --font-sans: "Source Sans 3", system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+}
+
+/* ================================
+   Base Styles
+================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+}
+
+/* ================================
+   Utility Styles
+================================ */
+@layer utilities {
+  .bg-splash-gradient {
+    background: linear-gradient(
+      180deg,
+      var(--color-orange-start) 0%,
+      var(--color-pink-end) 100%
+    );
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}

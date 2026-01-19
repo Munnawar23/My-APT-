@@ -3,43 +3,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
+import { CONTACT_INFO, FOOTER_LINKS, SOCIAL_LINKS, COMPANY_TAGLINE, COMPANY_DESCRIPTION } from '@/constants';
+import logoImage from '@/assets/images/logo.webp';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const contactInfo = [
-    {
-      icon: '📞',
-      title: 'Phone',
-      content: '8209760788',
-      link: 'tel:8209760788',
-    },
-    {
-      icon: '✉️',
-      title: 'Email',
-      content: 'myapt.office@gmail.com',
-      link: 'mailto:myapt.office@gmail.com',
-    },
-    {
-      icon: '📍',
-      title: 'Location',
-      content: 'Prabhat Nagar Sec 5, Udaipur',
-      link: '#',
-    },
-  ];
-
-  const footerLinks = {
-    company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Services', href: '#services' },
-      { name: 'Testimonials', href: '#testimonials' },
-    ],
-    legal: [
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Terms of Service', href: '#' },
-      { name: 'Accessibility Statement', href: '#' },
-    ],
-  };
 
   return (
     <footer id="contact" className="bg-linear-to-br from-text-primary to-text-secondary text-white relative overflow-hidden">
@@ -77,7 +45,7 @@ const Footer = () => {
 
         {/* Contact Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {contactInfo.map((info, index) => (
+          {CONTACT_INFO.map((info, index) => (
             <motion.a
               key={index}
               href={info.link}
@@ -115,40 +83,35 @@ const Footer = () => {
               className="mb-6"
             >
               <Image
-                src="/assets/images/logo.webp"
+                src={logoImage}
                 alt="My Apt Logo"
                 width={150}
                 height={50}
                 className="h-12 w-auto brightness-0 invert mb-4"
               />
               <p className="font-body text-white/80 leading-relaxed max-w-md">
-                Your Society Management Partner. Technology with human intervention—transforming apartments into professionally managed living ecosystems.
+                {COMPANY_DESCRIPTION}
               </p>
             </motion.div>
 
             <div className="space-y-3">
               <p className="font-body-medium text-white">
-                "आओ चलें भारत की ओर"
+                {COMPANY_TAGLINE}
               </p>
               <div className="flex gap-4">
-                <motion.a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  📱
-                </motion.a>
-                <motion.a
-                  href="mailto:myapt.office@gmail.com"
-                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  ✉️
-                </motion.a>
+                {SOCIAL_LINKS.map((social, idx) => (
+                  <motion.a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
               </div>
             </div>
           </div>
@@ -162,7 +125,7 @@ const Footer = () => {
           >
             <h3 className="font-heading text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
+              {FOOTER_LINKS.company.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
@@ -184,7 +147,7 @@ const Footer = () => {
           >
             <h3 className="font-heading text-lg mb-4">Legal</h3>
             <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
+              {FOOTER_LINKS.legal.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}

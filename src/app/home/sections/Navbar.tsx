@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
+import { NAV_LINKS, CONTACT_PHONE, LOGO_PATH } from '@/constants';
+import logoImage from '@/assets/images/logo.webp';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,14 +17,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
-  ];
 
   return (
     <motion.nav
@@ -42,7 +36,7 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Image
-              src="/assets/images/logo.webp"
+              src={logoImage}
               alt="My Apt Logo"
               width={120}
               height={40}
@@ -53,7 +47,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link, index) => (
+            {NAV_LINKS.map((link, index) => (
               <motion.a
                 key={link.name}
                 href={link.href}
@@ -67,7 +61,7 @@ const Navbar = () => {
               </motion.a>
             ))}
             <motion.a
-              href="tel:8209760788"
+              href={`tel:${CONTACT_PHONE}`}
               className="px-6 py-2.5 bg-primary text-white font-body-medium rounded-full hover:bg-accent transition-colors shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -100,7 +94,7 @@ const Navbar = () => {
             className="md:hidden bg-white border-t border-border overflow-hidden"
           >
             <div className="px-4 py-6 space-y-4">
-              {navLinks.map((link) => (
+              {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
@@ -111,7 +105,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="tel:8209760788"
+                href={`tel:${CONTACT_PHONE}`}
                 className="block w-full text-center px-6 py-2.5 bg-primary text-white font-body-medium rounded-full hover:bg-accent transition-colors"
               >
                 Call Now

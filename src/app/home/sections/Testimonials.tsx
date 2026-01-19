@@ -2,42 +2,12 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'motion/react';
+import { TESTIMONIALS } from '@/constants';
 
 const Testimonials = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const testimonials = [
-    {
-      name: 'Rajesh Kumar',
-      role: 'Resident, Prabhat Nagar',
-      content: 'My Apt has completely transformed our society. The maintenance is prompt, the communication is transparent, and we finally have peace of mind knowing everything is being handled professionally.',
-      rating: 5,
-      image: '👨‍💼',
-    },
-    {
-      name: 'Priya Sharma',
-      role: 'Society Secretary',
-      content: 'As a committee member, My Apt has reduced our workload significantly. The technology platform makes tracking complaints and maintenance so easy. Highly recommend their services!',
-      rating: 5,
-      image: '👩‍💼',
-    },
-    {
-      name: 'Amit Patel',
-      role: 'Resident, Sector 5',
-      content: 'The proactive maintenance approach is what sets My Apt apart. They fix issues before they become problems. Our society has never looked better or run smoother.',
-      rating: 5,
-      image: '👨',
-    },
-    {
-      name: 'Sunita Verma',
-      role: 'Resident',
-      content: 'The 24/7 support and quick response time is incredible. Whether it\'s a small issue or an emergency, the My Apt team is always there to help. Truly professional service.',
-      rating: 5,
-      image: '👩',
-    },
-  ];
 
   return (
     <section id="testimonials" ref={ref} className="py-24 bg-background-secondary relative overflow-hidden">
@@ -93,12 +63,12 @@ const Testimonials = () => {
                 exit={{ opacity: 0, y: -20 }}
                 className="text-xl md:text-2xl font-body text-text-primary leading-relaxed mb-8"
               >
-                {testimonials[activeIndex].content}
+                {TESTIMONIALS[activeIndex].content}
               </motion.p>
 
               {/* Stars */}
               <div className="flex gap-1 mb-6">
-                {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
+                {[...Array(TESTIMONIALS[activeIndex].rating)].map((_, i) => (
                   <motion.span
                     key={i}
                     initial={{ opacity: 0, scale: 0 }}
@@ -114,14 +84,14 @@ const Testimonials = () => {
               {/* Author */}
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-linear-to-br from-primary to-accent flex items-center justify-center text-3xl">
-                  {testimonials[activeIndex].image}
+                  {TESTIMONIALS[activeIndex].image}
                 </div>
                 <div>
                   <p className="font-heading text-text-primary text-lg">
-                    {testimonials[activeIndex].name}
+                    {TESTIMONIALS[activeIndex].name}
                   </p>
                   <p className="font-body text-text-secondary">
-                    {testimonials[activeIndex].role}
+                    {TESTIMONIALS[activeIndex].role}
                   </p>
                 </div>
               </div>
@@ -131,7 +101,7 @@ const Testimonials = () => {
 
         {/* Testimonial Navigation */}
         <div className="flex justify-center gap-4 flex-wrap">
-          {testimonials.map((testimonial, index) => (
+          {TESTIMONIALS.map((testimonial, index) => (
             <motion.button
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}
@@ -178,7 +148,7 @@ const Testimonials = () => {
         >
           <div className="inline-flex items-center gap-3 bg-white rounded-full px-8 py-4 shadow-lg">
             <div className="flex -space-x-2">
-              {testimonials.slice(0, 4).map((t, i) => (
+              {TESTIMONIALS.slice(0, 4).map((t, i) => (
                 <div key={i} className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-accent border-2 border-white flex items-center justify-center text-lg">
                   {t.image}
                 </div>

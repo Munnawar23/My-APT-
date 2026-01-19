@@ -2,34 +2,11 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
+import { SERVICES } from '@/constants';
 
 const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const services = [
-    {
-      title: 'Management',
-      subtitle: 'All-Inclusive Oversight',
-      description: 'Our management services involve overseeing daily operations to maintain a well-functioning residential environment. Our experienced team implements established procedures to keep every aspect in check.',
-      icon: '🏢',
-      gradient: 'from-blue-500 to-cyan-500',
-    },
-    {
-      title: 'Maintenance',
-      subtitle: 'Timely Repairs',
-      description: 'We ensure that all maintenance requests are handled promptly and efficiently, guaranteeing that the facilities remain in optimal condition for all residents.',
-      icon: '🔧',
-      gradient: 'from-primary to-accent',
-    },
-    {
-      title: 'Technology',
-      subtitle: 'Smart Solutions',
-      description: 'Through innovative technology, we streamline processes and enhance communication, making it easier for residents to access services and stay informed about their community.',
-      icon: '💻',
-      gradient: 'from-purple-500 to-pink-500',
-    },
-  ];
 
   return (
     <section id="services" ref={ref} className="py-24 bg-background relative overflow-hidden">
@@ -61,7 +38,7 @@ const Services = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {SERVICES.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}

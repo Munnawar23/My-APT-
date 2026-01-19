@@ -4,19 +4,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
+import { BENEFITS, STATS } from '@/constants';
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const benefits = [
-    'Smooth, system-driven daily operations',
-    'Faster complaint resolution with transparent tracking',
-    'Proactive and preventive maintenance',
-    'Better utilisation of amenities and common spaces',
-    'Reduced workload for committee members',
-    'Clean, secure, and well-maintained living environment',
-  ];
 
   return (
     <section id="about" ref={ref} className="py-24 bg-background-secondary relative overflow-hidden">
@@ -83,7 +75,7 @@ const About = () => {
             <h3 className="text-2xl font-heading text-text-primary mb-6">
               What Changes With My Apt
             </h3>
-            {benefits.map((benefit, index) => (
+            {BENEFITS.map((benefit, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: 20 }}
@@ -109,12 +101,7 @@ const About = () => {
           transition={{ delay: 0.8 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
         >
-          {[
-            { number: '500+', label: 'Happy Residents' },
-            { number: '10+', label: 'Societies Managed' },
-            { number: '24/7', label: 'Support Available' },
-            { number: '100%', label: 'Satisfaction Rate' },
-          ].map((stat, index) => (
+          {STATS.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}

@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "My App",
-  description: "Cleaned app with Google Fonts",
+  title: "My-APT",
+  description: "Technology with human intervention—transforming apartments into professionally managed living ecosystems.",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({

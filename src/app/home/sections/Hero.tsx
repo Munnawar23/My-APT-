@@ -129,13 +129,21 @@ const Hero = () => {
 
             <motion.div variants={itemVariants} className="flex items-center gap-6 justify-center lg:justify-start pt-6">
               <div className="flex -space-x-4">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
+                {[
+                  { bg: 'from-orange-400 to-pink-500', emoji: '👨‍💼', initial: 'R' },
+                  { bg: 'from-purple-400 to-blue-500', emoji: '👩‍💼', initial: 'P' },
+                  { bg: 'from-green-400 to-teal-500', emoji: '👨', initial: 'A' },
+                  { bg: 'from-yellow-400 to-orange-500', emoji: '👩', initial: 'S' },
+                ].map((user, i) => (
+                  <motion.div
                     key={i}
-                    className="w-12 h-12 rounded-full bg-linear-to-br from-gray-100 to-gray-300 border-2 border-white shadow-md flex items-center justify-center text-xs font-bold text-gray-500"
+                    className={`w-12 h-12 rounded-full bg-linear-to-br ${user.bg} border-3 border-white shadow-lg flex items-center justify-center text-xl relative overflow-hidden group cursor-pointer`}
+                    whileHover={{ scale: 1.15, zIndex: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
                   >
-                    User
-                  </div>
+                    <span className="relative z-10">{user.emoji}</span>
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                  </motion.div>
                 ))}
               </div>
               <div className="text-left">

@@ -60,8 +60,14 @@ const Testimonials = () => {
                             }`}
                          >
                             <div className="flex items-center gap-4 mb-3">
-                                <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-accent flex items-center justify-center text-lg">
-                                    {testimonial.image}
+                                <div className={`w-10 h-10 rounded-full bg-linear-to-br ${
+                                    index === 0 ? 'from-orange-400 to-pink-500' :
+                                    index === 1 ? 'from-purple-400 to-blue-500' :
+                                    index === 2 ? 'from-green-400 to-teal-500' :
+                                    'from-yellow-400 to-orange-500'
+                                } flex items-center justify-center text-lg shadow-lg border-2 border-white relative overflow-hidden group`}>
+                                    <span className="relative z-10">{testimonial.image}</span>
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
                                 </div>
                                 <div>
                                     <p className={`font-heading font-bold text-sm ${activeIndex === index ? 'text-white' : 'text-text-primary'}`}>{testimonial.name}</p>
@@ -109,8 +115,20 @@ const Testimonials = () => {
         >
              <div className="inline-flex items-center gap-4 bg-background-secondary border border-white/50 backdrop-blur-sm rounded-full px-6 py-3 shadow-inner">
                  <div className="flex -space-x-3">
-                     {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="w-8 h-8 rounded-full bg-linear-to-br from-gray-200 to-gray-300 border-2 border-white" />
+                     {[
+                         { bg: 'from-orange-400 to-pink-500', emoji: '👨‍💼' },
+                         { bg: 'from-purple-400 to-blue-500', emoji: '👩‍💼' },
+                         { bg: 'from-green-400 to-teal-500', emoji: '👨' },
+                         { bg: 'from-yellow-400 to-orange-500', emoji: '👩' },
+                     ].map((user, i) => (
+                        <motion.div 
+                            key={i} 
+                            className={`w-8 h-8 rounded-full bg-linear-to-br ${user.bg} border-2 border-white shadow-md flex items-center justify-center text-xs cursor-pointer`}
+                            whileHover={{ scale: 1.2, zIndex: 10 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                        >
+                            {user.emoji}
+                        </motion.div>
                      ))}
                  </div>
                  <p className="text-sm font-body-medium text-text-secondary">Trusted by <span className="font-bold text-text-primary">500+ Residents</span> across Udaipur</p>

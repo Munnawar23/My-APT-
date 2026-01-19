@@ -5,7 +5,8 @@ export const metadata: Metadata = {
   title: "My-APT",
   description: "Technology with human intervention—transforming apartments into professionally managed living ecosystems.",
   icons: {
-    icon: '/favicon.ico',
+    icon: '/icon.png',
+    apple: '/icon.png',
   },
 };
 

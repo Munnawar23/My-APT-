@@ -140,7 +140,7 @@ export const SOCIAL_LINKS = [
   {
     name: 'Instagram',
     href: 'https://www.instagram.com/_myapt?igsh=dTFieDRrOTA5cWp3',
-    icon: '📱',
+    icon: 'instagram', // Will be rendered as SVG
   },
   {
     name: 'Email',

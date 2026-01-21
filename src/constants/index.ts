@@ -14,7 +14,7 @@ export const CONTACT_PHONE = '8209760788';
 // ================================
 // LOGO
 // ================================
-export const LOGO_PATH = '/src/assets/images/logo.webp';
+export const LOGO_PATH = '/logo.webp';
 
 // ================================
 // SERVICES

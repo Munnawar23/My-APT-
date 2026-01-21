@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { CONTACT_INFO, FOOTER_LINKS, SOCIAL_LINKS, COMPANY_TAGLINE, COMPANY_DESCRIPTION } from '@/constants';
-import logoImage from '@/assets/images/logo.webp';
+
 
 const Footer = () => {
 
@@ -63,7 +63,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
                  <Image
-                    src={logoImage}
+                    src="/logo.webp"
                     alt="My Apt Logo"
                     width={150}
                     height={50}

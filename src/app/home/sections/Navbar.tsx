@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion/react';
 import { NAV_LINKS, CONTACT_PHONE } from '@/constants';
-import logoImage from '@/assets/images/logo.webp';
+
 
 const Navbar = () => {
   const { scrollY } = useScroll();
@@ -44,7 +44,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="#home" className="relative z-10 block shrink-0">
             <Image
-              src={logoImage}
+              src="/logo.webp"
               alt="My Apt Logo"
               width={100}
               height={40}

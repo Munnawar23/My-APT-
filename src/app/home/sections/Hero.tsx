@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import logoImage from '@/assets/images/logo.webp';
+
 
 const Hero = () => {
   const containerVariants = {
@@ -168,9 +168,11 @@ const Hero = () => {
                  <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-linear-to-b from-primary/10 to-transparent rounded-full blur-3xl opacity-60" />
                  
                 <div className="w-full h-full flex items-center justify-center p-12">
-                   <Image
-                    src={logoImage}
+                  <Image
+                    src="/logo.webp"
                     alt="My Apt Logo"
+                    width={500}
+                    height={500}
                     priority
                     className="w-full h-auto object-contain drop-shadow-2xl"
                   />
